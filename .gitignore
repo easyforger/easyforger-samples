@@ -24,3 +24,4 @@ eclipse
 
 .gradle
 build
+gradle.properties
