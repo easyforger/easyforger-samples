@@ -1,12 +1,12 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-import cpw.mods.fml.common.Mod
-import cpw.mods.fml.common.Mod.EventHandler
-import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import net.minecraft.init.Items._
+import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.common.Mod.EventHandler
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = "easyforger_chests", name = "EasyForger Chests Mod Examples", version = "0.1", modLanguage = "scala")
+@Mod(modid = "easyforger_chests", name = "EasyForger Chests Mod Examples", version = "0.2", modLanguage = "scala")
 object VanillaChestsMod extends EasyForger {
 
   @EventHandler
@@ -15,7 +15,7 @@ object VanillaChestsMod extends EasyForger {
       chest = ChestName.bonusChest,
       item = stick
     )
-    
+
     addChestContent(
       chest = ChestName.bonusChest,
       item = diamond_axe,
