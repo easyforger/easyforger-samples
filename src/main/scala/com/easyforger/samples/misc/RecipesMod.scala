@@ -2,18 +2,18 @@ package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
 import com.easyforger.recipes._
-import cpw.mods.fml.common.Mod
-import cpw.mods.fml.common.Mod.EventHandler
-import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import net.minecraft.enchantment.Enchantment._
 import net.minecraft.init.Blocks._
 import net.minecraft.init.Items._
+import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.common.Mod.EventHandler
+import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = "easyforger_recipes", name = "EasyForger Recipes Examples", version = "0.1", modLanguage = "scala")
+@Mod(modid = "easyforger_recipes", name = "EasyForger Recipes Examples", version = "0.2", modLanguage = "scala")
 object RecipesMod extends EasyForger {
 
   @EventHandler
-  def preInit(event: FMLPreInitializationEvent) = {
+  def init(event: FMLInitializationEvent) = {
     smelting(
       gravel to diamond_block(10) withXp 0.5,
       dirt to emerald_block,
