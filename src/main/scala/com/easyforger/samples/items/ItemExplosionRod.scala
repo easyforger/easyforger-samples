@@ -10,7 +10,7 @@ class ItemExplosionRod extends EasyForgerItem(ItemsMod.modId, "explosionrod") {
 
   override def onEntitySwing(entity: EntityLivingBase, stack: ItemStack): Boolean = {
     val target = entity.rayTrace(100, 1f)
-    entity.worldObj.createExplosion(entity, target.blockX, target.blockY, target.blockZ, 4f, true)
+    entity.worldObj.createExplosion(entity, target.getBlockPos.getX, target.getBlockPos.getY, target.getBlockPos.getZ, 4f, true)
 
     false
   }

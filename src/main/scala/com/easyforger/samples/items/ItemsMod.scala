@@ -2,14 +2,13 @@ package com.easyforger.samples.items
 
 import com.easyforger.base.EasyForger
 import com.easyforger.recipes._
-import cpw.mods.fml.common.Mod
-import cpw.mods.fml.common.Mod.EventHandler
-import cpw.mods.fml.common.event.FMLPreInitializationEvent
-import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.init.{Blocks, Items}
 import net.minecraft.item.ItemStack
+import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.common.Mod.EventHandler
+import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = ItemsMod.modId, name = "EasyForger Items Sample Mod", version = "0.1", modLanguage = "scala")
+@Mod(modid = ItemsMod.modId, name = "EasyForger Items Sample Mod", version = "0.2", modLanguage = "scala")
 object ItemsMod extends EasyForger {
   final val modId = "easyforger_items"
 
@@ -18,10 +17,10 @@ object ItemsMod extends EasyForger {
   val explosionRod = new ItemExplosionRod()
 
   @EventHandler
-  def preInit(event: FMLPreInitializationEvent) = {
-    GameRegistry.registerItem(chestKey, "ChestKey")
-    GameRegistry.registerItem(banana, "Banana")
-    GameRegistry.registerItem(explosionRod, "ExplosionRod")
+  def init(event: FMLInitializationEvent): Unit = {
+    chestKey.register()
+    banana.register()
+    explosionRod.register()
 
     val yellowChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("yellow"))
     val redChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("red"))
