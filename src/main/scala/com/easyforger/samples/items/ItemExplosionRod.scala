@@ -1,11 +1,11 @@
 package com.easyforger.samples.items
 
-import com.easyforger.items.EasyForgerItem
+import com.easyforger.items.EFItem
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.item.ItemStack
 
-class ItemExplosionRod extends EasyForgerItem(ItemsMod.modId, "explosionrod") {
+class ItemExplosionRod extends EFItem(ItemsMod.modId, "explosionrod") {
   setCreativeTab(CreativeTabs.tabMisc)
 
   override def onEntitySwing(entity: EntityLivingBase, stack: ItemStack): Boolean = {
