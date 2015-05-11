@@ -22,7 +22,7 @@ apply plugin: 'scala'
 apply plugin: 'forge'
 apply plugin: 'bintray-release'
 
-version = "0.2"
+version = "0.3-SNAPSHOT"
 group= "com.easyforger"
 archivesBaseName = "easyforger-samples"
 
@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.easyforger:easyforger-core:0.2:deobf@jar'
+    compile 'com.easyforger:easyforger-core:0.3-SNAPSHOT:deobf@jar'
 }
 
 processResources
