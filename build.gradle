@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.easyforger:easyforger-core:0.3-SNAPSHOT:deobf@jar'
+    compile 'com.easyforger:easyforger-core:' + project.version + ':deobf@jar'
 }
 
 processResources
