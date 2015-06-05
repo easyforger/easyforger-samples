@@ -15,12 +15,14 @@ object ItemsMod extends EasyForger {
   val chestKey = new ItemChestKey()
   val banana = new ItemBanana()
   val explosionRod = new ItemExplosionRod()
+  val venomSword = new ItemVenomSword()
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {
     chestKey.register()
     banana.register()
     explosionRod.register()
+    venomSword.register()
 
     val yellowChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("yellow"))
     val redChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("red"))
