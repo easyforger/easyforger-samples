@@ -16,6 +16,7 @@ object ItemsMod extends EasyForger {
   val banana = new ItemBanana()
   val explosionRod = new ItemExplosionRod()
   val venomSword = new ItemVenomSword()
+  val quickPick = new ItemQuickPickaxe()
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {
@@ -23,6 +24,7 @@ object ItemsMod extends EasyForger {
     banana.register()
     explosionRod.register()
     venomSword.register()
+    quickPick.register()
 
     val yellowChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("yellow"))
     val redChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("red"))
