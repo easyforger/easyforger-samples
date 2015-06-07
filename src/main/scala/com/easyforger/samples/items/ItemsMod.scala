@@ -54,7 +54,9 @@ object ItemsMod extends EasyForger {
           |..t
           |.s.
           |s..
-        """.stripMargin
+        """.stripMargin,
+      Items.iron_sword + Items.poisonous_potato to venomSword,
+      Items.iron_pickaxe + Items.diamond to quickPick
     )
   }
 }
