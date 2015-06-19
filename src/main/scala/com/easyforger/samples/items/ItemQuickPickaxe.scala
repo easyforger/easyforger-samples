@@ -6,7 +6,5 @@ import net.minecraft.item.Item.ToolMaterial
 import net.minecraft.item.ItemStack
 
 class ItemQuickPickaxe extends EFItemPickaxe(ItemsMod.modId, "quickpick", ToolMaterial.IRON) {
-
-  override def getDigSpeed(stack: ItemStack, state: IBlockState): Float =
-    super.getDigSpeed(stack, state) * 2
+  override def getDigSpeed(stack: ItemStack, state: IBlockState): Float = super.getDigSpeed(stack, state) * 2
 }
