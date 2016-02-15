@@ -22,6 +22,8 @@ easyforger-samples.iml
 eclipse
 !eclipse/.metadata
 
+run
+
 .gradle
 build
 gradle.properties
