@@ -4,6 +4,7 @@ import com.easyforger.base.EasyForger
 import com.easyforger.recipes._
 import net.minecraft.enchantment.Enchantment._
 import net.minecraft.init.Blocks._
+import net.minecraft.init.{Blocks, Items}
 import net.minecraft.init.Items._
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
@@ -15,10 +16,11 @@ object RecipesMod extends EasyForger {
   @EventHandler
   def init(event: FMLInitializationEvent) = {
     smelting(
-      gravel to diamond_block(10) withXp 0.5,
-      dirt to emerald_block,
-      arrow to flint withXp 0.1,
-      torch(10) to coal
+      Blocks.gravel to Blocks.diamond_block(10) withXp 0.5,
+      Blocks.dirt to Blocks.emerald_block,
+      Items.arrow to Items.flint withXp 0.1,
+      Blocks.torch(10) to Items.coal,
+      Items.apple to Items.cake
     )
 
     crafting(
