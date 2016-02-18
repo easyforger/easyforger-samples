@@ -40,7 +40,8 @@ object RecipesMod extends EasyForger {
           |s..
         """.stripMargin,
       dirt + sand to diamond_block,
-      diamond_shovel + obsidian to diamond_block(5)
+      diamond_shovel + obsidian to diamond_block(5),
+      diamond + carrot to armor_stand
     )
   }
 }
