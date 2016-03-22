@@ -1,7 +1,12 @@
+/*
+ * This file is part of EasyForger which is released under GPLv3 License.
+ * See file LICENSE.txt or go to http://www.gnu.org/licenses/gpl-3.0.en.html for full license details.
+ */
 package com.easyforger.samples.items
 
 import com.easyforger.base.EasyForger
-import com.easyforger.recipes._
+// TODO: change the DSL to avoid this import to be even necessary at all
+import com.easyforger.recipes._ //scalastyle:ignore
 import net.minecraft.init.{Blocks, Items}
 import net.minecraft.item.ItemStack
 import net.minecraftforge.fml.common.Mod
@@ -18,7 +23,7 @@ object ItemsMod extends EasyForger {
   val venomSword = new ItemVenomSword()
   val quickPick = new ItemQuickPickaxe()
   val quickSpade = new ItemQuickSpade()
-  var heavyAxe = new ItemHeavyAxe()
+  val heavyAxe = new ItemHeavyAxe()
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {

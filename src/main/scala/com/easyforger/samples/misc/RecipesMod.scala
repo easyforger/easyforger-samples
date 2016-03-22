@@ -1,11 +1,14 @@
+/*
+ * This file is part of EasyForger which is released under GPLv3 License.
+ * See file LICENSE.txt or go to http://www.gnu.org/licenses/gpl-3.0.en.html for full license details.
+ */
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-import com.easyforger.recipes._
-import net.minecraft.enchantment.Enchantment._
-import net.minecraft.init.Blocks._
+// TODO: change the DSL to avoid this import to be even necessary at all
+import com.easyforger.recipes._ //scalastyle:ignore
+import net.minecraft.enchantment.Enchantment
 import net.minecraft.init.{Blocks, Items}
-import net.minecraft.init.Items._
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
@@ -14,7 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent
 object RecipesMod extends EasyForger {
 
   @EventHandler
-  def init(event: FMLInitializationEvent) = {
+  def init(event: FMLInitializationEvent): Unit = {
     smelting(
       Blocks.gravel to Blocks.diamond_block(10) withXp 0.5,
       Blocks.dirt to Blocks.emerald_block,
@@ -24,24 +27,24 @@ object RecipesMod extends EasyForger {
     )
 
     crafting(
-      coal + sand to diamond,
-      coal + sand + red_flower to tnt,
-      stone_sword + flint to enchanted(stone_sword, sharpness, 1),
-      sapling('s') to red_flower(2) withShape
+      Items.coal + Blocks.sand to Items.diamond,
+      Items.coal + Blocks.sand + Blocks.red_flower to Blocks.tnt,
+      Items.stone_sword + Items.flint to enchanted(Items.stone_sword, Enchantment.sharpness, 1),
+      Blocks.sapling('s') to Blocks.red_flower(2) withShape
         """
           |...
           |.s.
           |.s.
         """.stripMargin,
-      stick + diamond to diamond_sword withShape
+      Items.stick + Items.diamond to Items.diamond_sword withShape
         """
           |..d
           |.d.
           |s..
         """.stripMargin,
-      dirt + sand to diamond_block,
-      diamond_shovel + obsidian to diamond_block(5),
-      diamond + carrot to armor_stand
+      Blocks.dirt + Blocks.sand to Blocks.diamond_block,
+      Items.diamond_shovel + Blocks.obsidian to Blocks.diamond_block(5),
+      Items.diamond + Items.carrot to Items.armor_stand
     )
   }
 }

@@ -1,8 +1,13 @@
+/*
+ * This file is part of EasyForger which is released under GPLv3 License.
+ * See file LICENSE.txt or go to http://www.gnu.org/licenses/gpl-3.0.en.html for full license details.
+ */
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-import com.easyforger.creatures._
-import net.minecraft.init.Items._
+// TODO: change the DSL to avoid this import to be even necessary at all
+import com.easyforger.creatures._ // scalastyle:ignore
+import net.minecraft.init.Items
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
@@ -11,33 +16,33 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 object SimpleCreaturesMod extends EasyForger {
 
   @EventHandler
-  def preInit(event: FMLPreInitializationEvent) = {
+  def preInit(event: FMLPreInitializationEvent): Unit = {
     creatures(
       creeper(
         common(
-          dropItem = diamond,
-          heldItem = diamond_sword
+          dropItem = Items.diamond,
+          heldItem = Items.diamond_sword
         ),
-        explosionRadius = 100,
+        explosionRadius = 100, // scalastyle:ignore
         powered = false
       ),
       zombie(
         common(
-          heldItem = diamond_sword,
-          dropItem = diamond
+          heldItem = Items.diamond_sword,
+          dropItem = Items.diamond
         )
       ),
       skeleton(
         common(
-          dropItem = diamond,
-          heldItem = stone_sword
+          dropItem = Items.diamond,
+          heldItem = Items.stone_sword
         ),
         behavior = skeleton => new SkeletonBehavior {
-          override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int) = {
+          override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Option[Unit] = {
             if (skeleton.getSkeletonType == 1) {
-              skeleton.dropItem(diamond, 1)
+              skeleton.dropItem(Items.diamond, 1)
             } else {
-              skeleton.dropItem(emerald, 1)
+              skeleton.dropItem(Items.emerald, 1)
             }
           }
         }
