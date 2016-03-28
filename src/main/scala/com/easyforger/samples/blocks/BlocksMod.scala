@@ -4,15 +4,14 @@
  */
 package com.easyforger.samples.blocks
 
-// TODO: change the DSL to avoid this import to be even necessary at all
-import com.easyforger.recipes._ //scalastyle:ignore
+import com.easyforger.base.EasyForger
 import net.minecraft.init.Items
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
 @Mod(modid = BlocksMod.modId, name = "EasyForger Blocks Sample Mod", version = "0.2", modLanguage = "scala")
-object BlocksMod {
+object BlocksMod extends EasyForger {
   final val modId = "easyforger_blocks"
 
   val cloth = new BlockCloth()

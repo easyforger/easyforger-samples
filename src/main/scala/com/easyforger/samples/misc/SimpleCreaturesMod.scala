@@ -5,8 +5,7 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-// TODO: change the DSL to avoid this import to be even necessary at all
-import com.easyforger.creatures._ // scalastyle:ignore
+import com.easyforger.creatures.SkeletonBehavior
 import net.minecraft.init.Items
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler

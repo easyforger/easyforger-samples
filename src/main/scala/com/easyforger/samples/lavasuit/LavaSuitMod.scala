@@ -4,9 +4,8 @@
  */
 package com.easyforger.samples.lavasuit
 
+import com.easyforger.base.EasyForger
 import com.easyforger.items.{Boots, ChestPlate, Helmet, Leggings}
-// TODO: change the DSL to avoid this import to be even necessary at all
-import com.easyforger.recipes._ //scalastyle:ignore
 import net.minecraft.init.Items
 import net.minecraftforge.common.util.EnumHelper
 import net.minecraftforge.fml.common.Mod
@@ -14,7 +13,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
 @Mod(modid = LavaSuitMod.modId, name = "EasyForger Armor LavaSuit Mod", version = "0.2", modLanguage = "scala")
-object LavaSuitMod {
+object LavaSuitMod extends EasyForger {
   final val modId = "easyforger_lavasuit"
   val materialName = "lavasuit"
   val textureName = materialName

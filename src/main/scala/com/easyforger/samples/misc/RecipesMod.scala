@@ -5,8 +5,6 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-// TODO: change the DSL to avoid this import to be even necessary at all
-import com.easyforger.recipes._ //scalastyle:ignore
 import net.minecraft.enchantment.Enchantment
 import net.minecraft.init.{Blocks, Items}
 import net.minecraftforge.fml.common.Mod
