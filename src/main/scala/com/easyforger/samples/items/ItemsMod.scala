@@ -65,7 +65,8 @@ object ItemsMod extends EasyForger {
       Items.iron_sword + Items.poisonous_potato to venomSword,
       Items.iron_pickaxe + Items.diamond to quickPick,
       Items.iron_shovel + Items.diamond to quickSpade,
-      Items.iron_axe + Items.diamond to heavyAxe
+      Items.iron_axe + Items.diamond to heavyAxe,
+      Items.apple to Blocks.cake
     )
   }
 }
