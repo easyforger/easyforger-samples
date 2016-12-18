@@ -5,44 +5,43 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-import net.minecraft.enchantment.Enchantment
-import net.minecraft.init.{Blocks, Items}
+import net.minecraft.init.{Blocks, Enchantments, Items}
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = "easyforger_recipes", name = "EasyForger Recipes Examples", version = "0.2", modLanguage = "scala")
+@Mod(modid = "easyforger_recipes", name = "EasyForger Recipes Examples", version = "0.5", modLanguage = "scala")
 object RecipesMod extends EasyForger {
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {
     smelting(
-      Blocks.gravel to Blocks.diamond_block(10) withXp 0.5,
-      Blocks.dirt to Blocks.emerald_block,
-      Items.arrow to Items.flint withXp 0.1,
-      Blocks.torch(10) to Items.coal,
-      Items.apple to Items.cake
+      Blocks.GRAVEL to Blocks.DIAMOND_BLOCK(10) withXp 0.5,
+      Blocks.DIRT to Blocks.EMERALD_BLOCK,
+      Items.ARROW to Items.FLINT withXp 0.1,
+      Blocks.TORCH(10) to Items.COAL,           // TODO: this `10` is ignored -> https://github.com/easyforger/easyforger/issues/70
+      Items.APPLE to Items.CAKE
     )
 
     crafting(
-      Items.coal + Blocks.sand to Items.diamond,
-      Items.coal + Blocks.sand + Blocks.red_flower to Blocks.tnt,
-      Items.stone_sword + Items.flint to enchanted(Items.stone_sword, Enchantment.sharpness, 1),
-      Blocks.sapling('s') to Blocks.red_flower(2) withShape
+      Items.COAL + Blocks.SAND to Items.DIAMOND,
+      Items.COAL + Blocks.SAND + Blocks.RED_FLOWER to Blocks.TNT,
+      Items.STONE_SWORD + Items.FLINT to enchanted(Items.STONE_SWORD, Enchantments.SHARPNESS, 1),
+      Blocks.SAPLING('s') to Blocks.RED_FLOWER(2) withShape
         """
           |...
           |.s.
           |.s.
         """.stripMargin,
-      Items.stick + Items.diamond to Items.diamond_sword withShape
+      Items.STICK + Items.DIAMOND to Items.DIAMOND_SWORD withShape
         """
           |..d
           |.d.
           |s..
         """.stripMargin,
-      Blocks.dirt + Blocks.sand to Blocks.diamond_block,
-      Items.diamond_shovel + Blocks.obsidian to Blocks.diamond_block(5),
-      Items.diamond + Items.carrot to Items.armor_stand
+      Blocks.DIRT + Blocks.SAND to Blocks.DIAMOND_BLOCK,
+      Items.DIAMOND_SHOVEL + Blocks.OBSIDIAN to Blocks.DIAMOND_BLOCK(5),
+      Items.DIAMOND + Items.CARROT to Items.ARMOR_STAND
     )
   }
 }

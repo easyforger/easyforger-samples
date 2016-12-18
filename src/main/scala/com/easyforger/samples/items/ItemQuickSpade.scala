@@ -10,5 +10,5 @@ import net.minecraft.item.Item.ToolMaterial
 import net.minecraft.item.ItemStack
 
 class ItemQuickSpade extends EFItemSpade(ItemsMod.modId, "quickspade", ToolMaterial.IRON) {
-  override def getDigSpeed(stack: ItemStack, state: IBlockState): Float = super.getDigSpeed(stack, state) * 2
+  override def getStrVsBlock(stack: ItemStack, state: IBlockState): Float = super.getStrVsBlock(stack, state) * 2
 }

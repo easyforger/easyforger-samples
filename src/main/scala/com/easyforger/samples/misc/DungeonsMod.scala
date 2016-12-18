@@ -5,12 +5,11 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-import net.minecraft.init.{Blocks, Items}
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = "easyforger_dungeons", name = "EasyForger Dungeons Mod Examples", version = "0.2", modLanguage = "scala")
+@Mod(modid = "easyforger_dungeons", name = "EasyForger Dungeons Mod Examples", version = "0.5", modLanguage = "scala")
 object DungeonsMod extends EasyForger {
 
   @EventHandler
@@ -19,20 +18,6 @@ object DungeonsMod extends EasyForger {
       EntityName.Creeper -> 100,
       EntityName.Zombie -> 400,
       EntityName.Enderman -> 50
-    )
-
-    dungeonChest(
-      item = Blocks.diamond_block,
-      minStack = 1,
-      maxStack = 5,
-      chance = 2
-    )
-
-    dungeonChest(
-      item = Items.spawn_egg,
-      minStack = 1,
-      maxStack = 1,
-      chance = 1
     )
   }
 }

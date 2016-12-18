@@ -6,42 +6,46 @@ package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
 import com.easyforger.creatures.SkeletonBehavior
+import net.minecraft.entity.monster.SkeletonType
 import net.minecraft.init.Items
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = "easyforger_creatures_simple", name = "EasyForger Vanilla Creatures Replacements", version = "0.2", modLanguage = "scala")
+@Mod(modid = "easyforger_creatures_simple", name = "EasyForger Vanilla Creatures Replacements", version = "0.5", modLanguage = "scala")
 object SimpleCreaturesMod extends EasyForger {
+
+  // TODO: drop item apparently doesn't work any more (heldItem is ok)
+  // See this issue: https://github.com/easyforger/easyforger/issues/73
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent): Unit = {
-    creatures(
+    creatures( this,
       creeper(
         common(
-          dropItem = Items.diamond,
-          heldItem = Items.diamond_sword
+          dropItem = Items.DIAMOND,
+          heldItem = Items.DIAMOND_SWORD
         ),
         explosionRadius = 100, // scalastyle:ignore
         powered = false
       ),
       zombie(
         common(
-          heldItem = Items.diamond_sword,
-          dropItem = Items.diamond
+          heldItem = Items.DIAMOND_SWORD,
+          dropItem = Items.DIAMOND
         )
       ),
       skeleton(
         common(
-          dropItem = Items.diamond,
-          heldItem = Items.stone_sword
+          dropItem = Items.DIAMOND,
+          heldItem = Items.STONE_SWORD
         ),
         behavior = skeleton => new SkeletonBehavior {
           override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Option[Unit] = {
-            if (skeleton.getSkeletonType == 1) {
-              skeleton.dropItem(Items.diamond, 1)
+            if (skeleton.getSkeletonType == SkeletonType.WITHER) {
+              skeleton.dropItem(Items.DIAMOND, 1)
             } else {
-              skeleton.dropItem(Items.emerald, 1)
+              skeleton.dropItem(Items.EMERALD, 1)
             }
           }
         }
