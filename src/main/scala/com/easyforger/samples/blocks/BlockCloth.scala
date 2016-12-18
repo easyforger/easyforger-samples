@@ -5,15 +5,15 @@
 package com.easyforger.samples.blocks
 
 import com.easyforger.blocks.EFBlock
-import net.minecraft.block.Block
+import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.init.Items
 
-class BlockCloth extends EFBlock(BlocksMod.modId, "clothblock", Material.cloth) {
+class BlockCloth extends EFBlock(BlocksMod.modId, "clothblock", Material.CLOTH) {
   setHardness(0.5f)
   setResistance(1.0f)
-  setStepSound(Block.soundTypeWood)
+  setSoundType(SoundType.WOOD)
 
-  dropItem = Items.book
+  dropItem = Items.BOOK
   quantityDropped = 3
 }

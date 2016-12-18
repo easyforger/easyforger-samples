@@ -5,20 +5,19 @@
 package com.easyforger.samples.items
 
 import com.easyforger.items.EFItemAxe
-import net.minecraft.block.Block
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.item.Item.ToolMaterial
 import net.minecraft.item.ItemStack
-import net.minecraft.util.BlockPos
+import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
 class ItemHeavyAxe extends EFItemAxe(ItemsMod.modId, "heavyaxe", ToolMaterial.IRON) {
-  override def getDigSpeed(stack: ItemStack, state: IBlockState): Float = super.getDigSpeed(stack, state) / 2
+  override def getStrVsBlock(stack: ItemStack, state: IBlockState): Float = super.getStrVsBlock(stack, state) / 2
 
-  override def onBlockDestroyed(stack: ItemStack, worldIn: World, blockIn: Block, pos: BlockPos, playerIn: EntityLivingBase): Boolean = {
-    if (blockIn.getMaterial == Material.wood) {
+  override def onBlockDestroyed(stack: ItemStack, worldIn: World, blockIn: IBlockState, pos: BlockPos, playerIn: EntityLivingBase): Boolean = {
+    if (blockIn.getMaterial == Material.WOOD) {
       destroyAllConnectedWoodBlocks(worldIn, pos)
     }
 
@@ -29,7 +28,7 @@ class ItemHeavyAxe extends EFItemAxe(ItemsMod.modId, "heavyaxe", ToolMaterial.IR
     val allPositions = Vector(startPos.up(), startPos.down(), startPos.south(), startPos.north(), startPos.west(), startPos.east())
 
     for (pos <- allPositions) {
-      if (world.getBlockState(pos).getBlock.getMaterial == Material.wood) {
+      if (world.getBlockState(pos).getMaterial == Material.WOOD) {
         world.destroyBlock(pos, true)
         destroyAllConnectedWoodBlocks(world, pos)
       }

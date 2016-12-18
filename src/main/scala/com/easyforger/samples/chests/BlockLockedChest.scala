@@ -4,10 +4,11 @@
  */
 package com.easyforger.samples.chests
 
-import com.easyforger.blocks.{ChestType, EFBlockChest}
+import com.easyforger.blocks.EFBlockChest
+import net.minecraft.block.BlockChest
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.world.World
 
-class BlockLockedChest extends EFBlockChest(LockedChestsMod.modId, "lockedchest", ChestType.Normal) {
+class BlockLockedChest extends EFBlockChest(LockedChestsMod.modId, "lockedchest", BlockChest.Type.BASIC) {
   override def createNewTileEntity(worldIn: World, meta: Int): TileEntity = new TileEntityLockedChest()
 }

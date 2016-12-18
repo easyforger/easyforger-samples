@@ -10,7 +10,7 @@ import net.minecraft.entity.EntityLivingBase
 import net.minecraft.item.ItemStack
 
 class ItemExplosionRod extends EFItem(ItemsMod.modId, "explosionrod") {
-  setCreativeTab(CreativeTabs.tabMisc)
+  setCreativeTab(CreativeTabs.MISC)
   val blockReach = 100
 
   override def onEntitySwing(entity: EntityLivingBase, stack: ItemStack): Boolean = {

@@ -10,7 +10,8 @@ import net.minecraft.tileentity.TileEntityChest
 class TileEntityLockedChest extends TileEntityChest {
   setCustomName("locked chest")
 
+  // TODO: support offhand, as part of https://github.com/easyforger/easyforger/issues/63
   override def isUseableByPlayer(player: EntityPlayer): Boolean = {
-    player.getHeldItem != null && player.getHeldItem.getUnlocalizedName.contains("chestkey") // scalastyle:ignore
+    player.getHeldItemMainhand != null && player.getHeldItemMainhand.getUnlocalizedName.contains("chestkey") // scalastyle:ignore
   }
 }

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = ItemsMod.modId, name = "EasyForger Items Sample Mod", version = "0.2", modLanguage = "scala")
+@Mod(modid = ItemsMod.modId, name = "EasyForger Items Sample Mod", version = "0.5", modLanguage = "scala")
 object ItemsMod extends EasyForger {
   final val modId = "easyforger_items"
 
@@ -38,36 +38,36 @@ object ItemsMod extends EasyForger {
     val blueChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("blue"))
 
     crafting(
-      Items.iron_ingot + yellowDye('y') to yellowChestKey withShape
+      Items.IRON_INGOT + yellowDye('y') to yellowChestKey withShape
         """
           |...
           |iiy
           |..i
         """.stripMargin,
-      Items.iron_ingot + redDye to redChestKey withShape
+      Items.IRON_INGOT + redDye to redChestKey withShape
         """
           |...
           |iir
           |..i
         """.stripMargin,
-      Items.iron_ingot + blueDye('b') to blueChestKey withShape
+      Items.IRON_INGOT + blueDye('b') to blueChestKey withShape
         """
           |...
           |iib
           |..i
         """.stripMargin,
-      Items.stick + Blocks.tnt to explosionRod withShape
+      Items.STICK + Blocks.TNT to explosionRod withShape
         """
           |..t
           |.s.
           |s..
         """.stripMargin,
-      Items.iron_sword + Items.poisonous_potato to venomSword,
-      Items.iron_pickaxe + Items.diamond to quickPick,
-      Items.iron_shovel + Items.diamond to quickSpade,
-      Items.iron_axe + Items.diamond to heavyAxe,
-      Items.apple to Blocks.cake,
-      Blocks.coal_block to Blocks.diamond_block(2)
+      Items.IRON_SWORD + Items.POISONOUS_POTATO to venomSword,
+      Items.IRON_PICKAXE + Items.DIAMOND to quickPick,
+      Items.IRON_SHOVEL + Items.DIAMOND to quickSpade,
+      Items.IRON_AXE + Items.DIAMOND to heavyAxe,
+      Items.APPLE to Blocks.CAKE,
+      Blocks.COAL_BLOCK to Blocks.DIAMOND_BLOCK(2)
     )
   }
 }

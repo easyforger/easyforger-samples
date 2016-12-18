@@ -5,14 +5,14 @@
 package com.easyforger.samples.lavasuit
 
 import com.easyforger.base.EasyForger
-import com.easyforger.items.{Boots, ChestPlate, Helmet, Leggings}
-import net.minecraft.init.Items
+import net.minecraft.init.{Items, SoundEvents}
+import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraftforge.common.util.EnumHelper
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = LavaSuitMod.modId, name = "EasyForger Armor LavaSuit Mod", version = "0.2", modLanguage = "scala")
+@Mod(modid = LavaSuitMod.modId, name = "EasyForger Armor LavaSuit Mod", version = "0.5", modLanguage = "scala")
 object LavaSuitMod extends EasyForger {
   final val modId = "easyforger_lavasuit"
   val materialName = "lavasuit"
@@ -21,12 +21,13 @@ object LavaSuitMod extends EasyForger {
   val armorReductions = Array(4, 9, 7, 4)
   val enchantability = 10
 
-  val lavaMaterial = EnumHelper.addArmorMaterial(materialName, textureName, durability, armorReductions, enchantability)
+  val lavaMaterial = EnumHelper.addArmorMaterial(
+    materialName, textureName, durability, armorReductions, enchantability, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0)
 
-  val lavaHelmet = new LavaSuitItemArmor(lavaMaterial, Helmet)
-  val lavaChestPlate = new LavaSuitItemArmor(lavaMaterial, ChestPlate)
-  val lavaLeggings = new LavaSuitItemArmor(lavaMaterial, Leggings)
-  val lavaBoots = new LavaSuitItemArmor(lavaMaterial, Boots)
+  val lavaHelmet = new LavaSuitItemArmor(lavaMaterial, EntityEquipmentSlot.HEAD)
+  val lavaChestPlate = new LavaSuitItemArmor(lavaMaterial, EntityEquipmentSlot.CHEST)
+  val lavaLeggings = new LavaSuitItemArmor(lavaMaterial, EntityEquipmentSlot.LEGS)
+  val lavaBoots = new LavaSuitItemArmor(lavaMaterial, EntityEquipmentSlot.FEET)
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {
@@ -36,25 +37,25 @@ object LavaSuitMod extends EasyForger {
     lavaBoots.register()
 
     crafting(
-      Items.iron_ingot + Items.lava_bucket to lavaHelmet withShape
+      Items.IRON_INGOT + Items.LAVA_BUCKET to lavaHelmet withShape
         """
           |iii
           |ili
           |...
         """.stripMargin,
-      Items.iron_ingot + Items.lava_bucket to lavaChestPlate withShape
+      Items.IRON_INGOT + Items.LAVA_BUCKET to lavaChestPlate withShape
         """
           |ili
           |iii
           |iii
         """.stripMargin,
-      Items.iron_ingot + Items.lava_bucket to lavaLeggings withShape
+      Items.IRON_INGOT + Items.LAVA_BUCKET to lavaLeggings withShape
         """
           |iii
           |ili
           |i.i
         """.stripMargin,
-      Items.iron_ingot + Items.lava_bucket to lavaBoots withShape
+      Items.IRON_INGOT + Items.LAVA_BUCKET to lavaBoots withShape
         """
           |...
           |i.i

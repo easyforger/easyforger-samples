@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = BlocksMod.modId, name = "EasyForger Blocks Sample Mod", version = "0.2", modLanguage = "scala")
+@Mod(modid = BlocksMod.modId, name = "EasyForger Blocks Sample Mod", version = "0.5", modLanguage = "scala")
 object BlocksMod extends EasyForger {
   final val modId = "easyforger_blocks"
 
@@ -21,7 +21,7 @@ object BlocksMod extends EasyForger {
     cloth.register()
 
     crafting(
-      Items.string to cloth withShape
+      Items.STRING to cloth withShape
         """
           |sss
           |s.s
