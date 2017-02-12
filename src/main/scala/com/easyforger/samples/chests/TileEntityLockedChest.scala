@@ -5,13 +5,15 @@
 package com.easyforger.samples.chests
 
 import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.item.ItemStack
 import net.minecraft.tileentity.TileEntityChest
 
 class TileEntityLockedChest extends TileEntityChest {
   setCustomName("locked chest")
 
-  // TODO: support offhand, as part of https://github.com/easyforger/easyforger/issues/63
-  override def isUseableByPlayer(player: EntityPlayer): Boolean = {
-    player.getHeldItemMainhand != null && player.getHeldItemMainhand.getUnlocalizedName.contains("chestkey") // scalastyle:ignore
-  }
+  override def isUseableByPlayer(player: EntityPlayer): Boolean =
+    isKey(player.getHeldItemMainhand) || isKey(player.getHeldItemOffhand)
+
+  def isKey(itemStack: ItemStack): Boolean =
+    itemStack != null && itemStack.getUnlocalizedName.contains("chestkey") // scalastyle:ignore
 }
