@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = "easyforger_creatures_simple", name = "EasyForger Vanilla Creatures Replacements", version = "0.5", modLanguage = "scala")
+@Mod(modid = "easyforger_creatures_simple", name = "EasyForger Vanilla Creatures Replacements", version = "0.5.1", modLanguage = "scala")
 object SimpleCreaturesMod extends EasyForger {
 
   // TODO: drop item apparently doesn't work any more (heldItem is ok)
@@ -24,21 +24,22 @@ object SimpleCreaturesMod extends EasyForger {
       creeper(
         common(
           dropItem = Items.DIAMOND,
-          heldItem = Items.DIAMOND_SWORD
+          heldItemMainHand = Items.DIAMOND_SWORD
         ),
         explosionRadius = 100, // scalastyle:ignore
         powered = false
       ),
       zombie(
         common(
-          heldItem = Items.DIAMOND_SWORD,
-          dropItem = Items.DIAMOND
+          dropItem = Items.DIAMOND,
+          heldItemMainHand = Items.DIAMOND_SWORD,
+          heldItemOffHand = Items.APPLE
         )
       ),
       skeleton(
         common(
           dropItem = Items.DIAMOND,
-          heldItem = Items.STONE_SWORD
+          heldItemMainHand = Items.STONE_SWORD
         ),
         behavior = skeleton => new SkeletonBehavior {
           override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Option[Unit] = {
