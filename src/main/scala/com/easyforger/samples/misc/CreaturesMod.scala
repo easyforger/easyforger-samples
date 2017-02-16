@@ -12,34 +12,32 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = "easyforger_creatures_simple", name = "EasyForger Vanilla Creatures Replacements", version = "0.5.1", modLanguage = "scala")
-object SimpleCreaturesMod extends EasyForger {
-
-  // TODO: drop item apparently doesn't work any more (heldItem is ok)
-  // See this issue: https://github.com/easyforger/easyforger/issues/73
+@Mod(modid = CreaturesMod.modId, name = "EasyForger Vanilla Creatures Replacements", version = "0.5.1", modLanguage = "scala")
+object CreaturesMod extends EasyForger {
+  final val modId = "easyforger_creatures"
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent): Unit = {
     creatures( this,
       creeper(
         common(
-          dropItem = Items.DIAMOND,
-          heldItemMainHand = Items.DIAMOND_SWORD
+          heldItemMainHand = Items.DIAMOND_SWORD,
+          dropJson = s"$modId:entities/ef_creeper"
         ),
         explosionRadius = 100, // scalastyle:ignore
         powered = false
       ),
       zombie(
         common(
-          dropItem = Items.DIAMOND,
           heldItemMainHand = Items.DIAMOND_SWORD,
-          heldItemOffHand = Items.APPLE
+          heldItemOffHand = Items.APPLE,
+          dropJson = s"$modId:entities/ef_zombie"
         )
       ),
       skeleton(
         common(
-          dropItem = Items.DIAMOND,
-          heldItemMainHand = Items.STONE_SWORD
+          heldItemMainHand = Items.STONE_SWORD,
+          dropJson = s"$modId:entities/ef_skeleton"
         ),
         behavior = skeleton => new SkeletonBehavior {
           override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Option[Unit] = {
