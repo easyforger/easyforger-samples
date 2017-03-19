@@ -10,8 +10,9 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = "easyforger_recipes", name = "EasyForger Recipes Examples", version = "0.5", modLanguage = "scala")
+@Mod(modid = RecipesMod.modId, name = "EasyForger Recipes Examples", version = "0.5", modLanguage = "scala")
 object RecipesMod extends EasyForger {
+  final val modId = "easyforger_recipes"
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {

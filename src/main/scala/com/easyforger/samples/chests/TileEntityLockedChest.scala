@@ -11,7 +11,10 @@ import net.minecraft.tileentity.TileEntityChest
 class TileEntityLockedChest extends TileEntityChest {
   setCustomName("locked chest")
 
-  override def isUseableByPlayer(player: EntityPlayer): Boolean =
+  override def isUsableByPlayer(player: EntityPlayer): Boolean =
+    super.isUsableByPlayer(player) && hasChestKey(player)
+
+  def hasChestKey(player: EntityPlayer): Boolean =
     isKey(player.getHeldItemMainhand) || isKey(player.getHeldItemOffhand)
 
   def isKey(itemStack: ItemStack): Boolean =

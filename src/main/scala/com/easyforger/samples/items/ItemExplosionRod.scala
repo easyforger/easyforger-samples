@@ -15,7 +15,7 @@ class ItemExplosionRod extends EFItem(ItemsMod.modId, "explosionrod") {
 
   override def onEntitySwing(entity: EntityLivingBase, stack: ItemStack): Boolean = {
     val target = entity.rayTrace(blockReach, 1f)
-    entity.worldObj.createExplosion(entity, target.getBlockPos.getX, target.getBlockPos.getY, target.getBlockPos.getZ, 4f, true)
+    entity.world.createExplosion(entity, target.getBlockPos.getX, target.getBlockPos.getY, target.getBlockPos.getZ, 4f, true)
 
     false
   }
