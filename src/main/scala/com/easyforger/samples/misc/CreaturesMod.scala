@@ -5,8 +5,6 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
-import com.easyforger.creatures.SkeletonBehavior
-import net.minecraft.entity.monster.SkeletonType
 import net.minecraft.init.Items
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
@@ -38,16 +36,7 @@ object CreaturesMod extends EasyForger {
         common(
           heldItemMainHand = Items.STONE_SWORD,
           dropJson = s"$modId:entities/ef_skeleton"
-        ),
-        behavior = skeleton => new SkeletonBehavior {
-          override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Option[Unit] = {
-            if (skeleton.getSkeletonType == SkeletonType.WITHER) {
-              skeleton.dropItem(Items.DIAMOND, 1)
-            } else {
-              skeleton.dropItem(Items.EMERALD, 1)
-            }
-          }
-        }
+        )
       )
     )
   }

@@ -9,8 +9,9 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = "easyforger_dungeons", name = "EasyForger Dungeons Mod Examples", version = "0.5", modLanguage = "scala")
+@Mod(modid = DungeonsMod.modId, name = "EasyForger Dungeons Mod Examples", version = "0.5", modLanguage = "scala")
 object DungeonsMod extends EasyForger {
+  final val modId = "easyforger_dungeons"
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent): Unit = {
