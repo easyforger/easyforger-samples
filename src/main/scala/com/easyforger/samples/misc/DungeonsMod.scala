@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = DungeonsMod.modId, name = "EasyForger Dungeons Mod Examples", version = "0.5", modLanguage = "scala")
+@Mod(modid = DungeonsMod.modId, name = "EasyForger Dungeons Mod", version = "0.6", modLanguage = "scala")
 object DungeonsMod extends EasyForger {
   final val modId = "easyforger_dungeons"
 
@@ -19,6 +19,10 @@ object DungeonsMod extends EasyForger {
       EntityName.Creeper -> 100,
       EntityName.Zombie -> 400,
       EntityName.Enderman -> 50
+    )
+
+    chestDrops(
+      Chests.spawnBonus -> s"$modId:chests/ef_spawn_bonus_chest"
     )
   }
 }
