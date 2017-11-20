@@ -1,3 +1,7 @@
+
+## Imporant: this project is not maintained anymore - it was merged back into the core project at https://github.com/easyforger/easyforger
+
+
 # easyforger-samples
 
 
